@@ -3,6 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+span{
+    color: red;
+    font-size: 12px;
+}
 section{
     position: absolute;
     top: 50%;
