@@ -1,1 +1,28 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black" [containerInside]="false">
+    <mdb-navbar-brand><a class="navbar-brand" href="#">Navbar</a></mdb-navbar-brand>
+    <links>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect> Home</a>
+        </li>
+        <li *ngIf="user===''; else lgout" class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            Profile<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/login">Login</a>
+          </div>
+        </li>
+        <ng-template #lgout>
+            <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                  Profile<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                  <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+                  <a class="dropdown-item waves-light" mdbWavesEffect (click)="onLogout()">Log out</a>
+                </div>
+              </li>
+        </ng-template>
+      </ul>
+    </links>
+  </mdb-navbar>
 <router-outlet></router-outlet>
