@@ -1,0 +1,34 @@
+<section *ngIf="user!=''" class="Form">
+    <div class="container">
+        <div class="card p-3 text-center">
+            <div class="d-flex flex-row justify-content-center mb-3">
+                <div class="image"> <img src="https://i.imgur.com/hczKIze.jpg" class="rounded-circle img-fluid"> <span><i class='bx bxs-camera-plus'></i></span> </div>
+                <div class="d-flex flex-column ms-3 user-details">
+                    <h4 class="mt-4">{{user.name}}</h4>
+                </div>
+            </div>
+            <form [formGroup]="updateForm" (ngSubmit)="onSubmit(updateForm.value)">
+                <div class="form-row">
+                    <div class="col-lg-6">
+                        <div class="inputs"> <label>Name</label> <input formControlName="name" class="form-control" type="text" > </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inputs"> <label>Email</label> <input formControlName="email" class="form-control" type="email" > </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inputs"> <label>Profile Image URL</label> <input formControlName="imageurl" class="form-control" type="url" > </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inputs"> <label>Phone</label> <input class="form-control" formControlName="phone" type="text"> </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-lg-12">
+                        <div class="about-inputs"> <label>Address</label> <textarea formControlName="address" class="form-control" type="text"> </textarea> </div>
+                    </div>
+                </div>
+                <div class="mt-3 gap-2 d-flex justify-content-end"> <input type="button" (click)="onCancel()" value="Cancel" class="px-3 btn "/> <input type="submit" class="px-3 btn" value="Update"/> </div>  
+        </form>
+    </div>
+    </div>
+</section>

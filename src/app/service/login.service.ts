@@ -15,4 +15,8 @@ export class LoginService {
   getUser(s:any){
     return this.http.get('http://localhost:62289/api/Userdetails/'+s);
   }
+  updateUser(id:string,s:any)
+  {
+    return this.http.put('http://localhost:62289/api/Userdetails/'+id,s);
+  }
 }

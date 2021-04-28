@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginService } from './service/login.service';
 
@@ -12,11 +13,12 @@ export class AppComponent {
   title = 'FoodOrdering';
   user:any = '';
   subscription:Subscription;
-  constructor(private ser:LoginService){
+  constructor(private ser:LoginService,private router:Router){
     this.subscription = this.ser.currentMessage.subscribe(e => this.user=e)
   }
   onLogout()
   {
     this.ser.changeMessage('');
+    this.router.navigate(['/home']);
   }
 }
