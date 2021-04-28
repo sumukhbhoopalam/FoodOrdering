@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SignupService } from '../service/signup.service';
 import {Md5} from 'ts-md5';
 import * as uuid from 'uuid';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +13,7 @@ import * as uuid from 'uuid';
 export class SignupComponent implements OnInit {
   localUrl:any[] = [];
   finalData : any = null;
-  constructor(private ser:SignupService) { }
+  constructor(private router:Router,private ser:SignupService) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
     const md5 = new Md5();
     let hashed = md5.appendStr(data.pass).end();
     this.finalData = JSON.parse(
-      `{"userid":"1005",
+      `{
         "name":"${data.name}",
         "email":"${data.email}",
         "pass":"${hashed}",
@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
         "imageurl":"${data.imageurl}"}`
     );
     console.log(this.finalData);
-    this.ser.postUser(this.finalData).subscribe(e=>console.log(e))
+    this.ser.postUser(this.finalData).subscribe(e=>{console.log(e),this.router.navigate(['/login'])},e=>alert("Unable to sign up,check the entered fields"))
   }
 
   showPreviewImage(event: any) {
@@ -43,5 +43,4 @@ export class SignupComponent implements OnInit {
         reader.readAsDataURL(event.target.files[0]);
     }
 }
-
 }
