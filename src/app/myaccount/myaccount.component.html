@@ -2,24 +2,38 @@
     <div class="container">
         <div class="card p-3 text-center">
             <div class="d-flex flex-row justify-content-center mb-3">
-                <div class="image"> <img src="https://i.imgur.com/hczKIze.jpg" class="rounded-circle img-fluid"> <span><i class='bx bxs-camera-plus'></i></span> </div>
+                <div> <img src={{user.imageurl}} class="rounded-circle img-fluid"> <span><i class='bx bxs-camera-plus'></i></span> </div>
                 <div class="d-flex flex-column ms-3 user-details">
-                    <h4 class="mt-4">{{user.name}}</h4>
+                    <h4 class="mt-5">{{user.name}}</h4>
                 </div>
             </div>
             <form [formGroup]="updateForm" (ngSubmit)="onSubmit(updateForm.value)">
                 <div class="form-row">
-                    <div class="col-lg-6">
-                        <div class="inputs"> <label>Name</label> <input formControlName="name" class="form-control" type="text" > </div>
+                    <div class="col-lg-5">
+                        <div class="inputs"> <label>Name</label> <input formControlName="name" class="form-control" type="text" required> </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="inputs"> <label>Email</label> <input formControlName="email" class="form-control" type="email" > </div>
+                    <div class="col-lg-1 mt-2">
+                        <span style="font-size: 25px;" *ngIf="updateForm.controls.name.errors?.required">*</span>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
+                        <div class="inputs"> <label>Email</label> <input formControlName="email" class="form-control" type="email" required> </div>
+                        <div style="font-size: 10px;" *ngIf="updateForm.controls.email.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Email</div>
+                    </div>
+                    <div class="col-lg-1 mt-2">
+                        <span style="font-size: 25px;" *ngIf="updateForm.controls.email.errors?.required">*</span>
+                    </div>
+                    <div class="col-lg-5">
                         <div class="inputs"> <label>Profile Image URL</label> <input formControlName="imageurl" class="form-control" type="url" > </div>
+                        <div style="font-size: 10px;" *ngIf="updateForm.controls.imageurl.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Image URL</div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="inputs"> <label>Phone</label> <input class="form-control" formControlName="phone" type="text"> </div>
+                    <div class="col-lg-1 mt-2">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="inputs"> <label>Phone</label> <input class="form-control" formControlName="phone" type="text" required> </div>
+                        <div style="font-size: 10px;" *ngIf="updateForm.controls.phone.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Number</div>
+                    </div>
+                    <div class="col-lg-1 mt-2">
+                        <span style="font-size: 25px;" *ngIf="updateForm.controls.phone.errors?.required">*</span>
                     </div>
                 </div>
                 <div class="form-row">

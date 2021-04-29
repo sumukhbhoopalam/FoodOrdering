@@ -10,7 +10,7 @@ span{
 
 @media (min-width: 1200px)
 {
-.container, .container-lg, .container-md, .container-sm, .container-xl {
+.container, .container-lg{
     max-width: 1240px;
 }
 section{
@@ -21,6 +21,20 @@ section{
     transform: translate(-50%, -50%) 
 }
 }
+@media (max-width: 1199px) and (min-width: 600px)  {
+    section{
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 5%;
+        width: 50%;
+    }
+}
+@media (max-width: 1199px) and (min-width: 990px)  {
+    .img-fluid{
+        height:max-content;
+    }
+}
+
 .main{
     background-color: white;
     border-radius: 30px;
