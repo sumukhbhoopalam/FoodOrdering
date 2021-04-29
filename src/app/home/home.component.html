@@ -1,5 +1,47 @@
 <div align="center" class="embed-responsive embed-responsive-16by9">
-    <video autoplay loop class="embed-responsive-item">
-        <source src="https://cdn.jotfor.ms/assets/video/landing/food-ordering-system/introduction.mp4?v=0.1" type="video/mp4">
+    <video style="object-fit: cover;" autoplay loop class="embed-responsive-item">
+        <source style="width: 100%;" src="https://cdn.jotfor.ms/assets/video/landing/food-ordering-system/introduction.mp4?v=0.1" type="video/mp4">
     </video>
+</div>
+
+<div class="row mx-xl-5" >
+    <div class="col-xl-3 mx-xl-5 col-lg-6 col-md-6 my-2" *ngFor="let data of dummydata">
+      <mdb-card>
+        <div class="view overlay waves-light" mdbWavesEffect>
+          <img class="img-fluid" style="height:200px" src={{data.image}} />
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <mdb-card-body class="elegant-color white-text">
+          <mdb-card-title>
+            <h4>{{data.itemname}}</h4>
+          </mdb-card-title>
+  
+          <hr class="hr-light">
+          <div class="text-center">
+            <mdb-badge class="m-2" style="background-color: white;"><div style="color: black;">{{data.category}}</div></mdb-badge>
+            <mdb-badge *ngIf="data.veg; else nonveg" class="m-2" style="background-color: green;"><div style="color: black;">Vegetarian</div></mdb-badge>
+            <ng-template #nonveg>
+                <mdb-badge class="m-2" style="background-color: red;"><div style="color: black;">Non Vegetarian</div></mdb-badge>
+            </ng-template>
+         </div>        
+          <mdb-card-text class="white-text">
+            {{data.description}}
+          </mdb-card-text>
+          <hr class="hr-light">
+          <div class="row">
+            <div class="white-text d-flex col-lg-5 font-weight-bold">&#8377;{{data.price}}</div>
+            <button class="btn d-flex col-lg-7">
+                <p class="waves-light white-text" mdbWavesEffect>Add to Cart
+                <span>
+                    <mdb-icon fas icon="cart-plus" class="pl-2 waves-light" mdbWavesEffect></mdb-icon>
+                </span>
+            </p>
+            </button>
+         </div>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+    
 </div>
