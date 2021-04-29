@@ -25,7 +25,10 @@ export class LoginComponent implements OnInit {
       {
         alert("Success")
         this.ser.changeMessage(this.data);
-        this.router.navigate(['/home'])
+        if(this.data.userid =="admin")
+        { this.router.navigate(['/adminhome']);}
+        else
+        { this.router.navigate(['/home']);}
       }
       else{
         alert("Invalid Password")

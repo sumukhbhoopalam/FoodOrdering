@@ -1,0 +1,39 @@
+<p>items works!</p>
+
+<hr/>
+<!--
+<div class="container card">
+    <div class="row">
+        <div class="col-md-3   bg-success">
+            <img class="" src="https://i.imgur.com/hczKIze.jpg" class="img-fluid"> 
+        </div>
+
+        <div class="col-md-9 py-5 bg-primary">
+            Description and further details 
+        </div>
+    </div>
+</div>
+-->
+
+<div *ngIf="items">
+    <div *ngFor="let i of items" class="container card">
+        <div class="row">
+            <div class="image col-md-3 my-3 bg-warning px-2 py-2">               
+                <img src="https://foodorderingdocs.blob.core.windows.net/images/{{i.itemid}}.jpg" class="img-fluid"> 
+                <p class="mx-auto">{{i.itemid}}</p>
+
+            </div>
+        
+            <div class="align-items-center col-md-9 my-3 bg-primary">
+                <h4 class="mt-4">{{i.itemname}}</h4>             
+            </div>
+        </div>
+    </div>
+    
+<div>   
+    
+    
+
+
+
+<hr/>

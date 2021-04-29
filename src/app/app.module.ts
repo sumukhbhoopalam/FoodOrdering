@@ -12,6 +12,9 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { HomeComponent } from './home/home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MyaccountComponent } from './myaccount/myaccount.component';
+import { ItemsComponent } from './adminhome/items/items.component';
+import { UsersComponent } from './adminhome/users/users.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
     SignupComponent,
     AdminhomeComponent,
     HomeComponent,
-    MyaccountComponent
+    MyaccountComponent,
+    ItemsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
