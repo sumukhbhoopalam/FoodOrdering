@@ -15,7 +15,8 @@ export class SignupComponent implements OnInit {
   localUrl:any[] = [];
   finalData : any = null;
   signupForm:FormGroup;
-  password:string = '';
+  pass:string = '';
+  cpass:string = '';
   emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
   constructor(private router:Router,private ser:SignupService) {
     this.signupForm = new FormGroup({
@@ -29,19 +30,6 @@ export class SignupComponent implements OnInit {
   });
   }
   ngOnInit(): void {
-  }
-
-  MustMatch(c:any) {
-    if(!c.value){
-      return null;
-    }
-    if(c.value==="12345")
-    {
-        return null;
-    }
-    else{
-        return {'addr':true};
-    }
   }
 
   onSubmit(data:any){

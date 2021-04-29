@@ -1,4 +1,4 @@
-<section class="Form">
+<section class="Form my-2">
     <div class="container ">
         <div class="main row no-gutters">
             <div class="col-lg-5">
@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-lg-5">
                             <input type="email" class="form-control mt-3 p-2" placeholder="User Email" formControlName="email" required/>
-                            <span *ngIf="signupForm.controls.email.errors?.pattern">Enter Valid Email</span>
+                            <div style="font-size: 10px;" *ngIf="signupForm.controls.email.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Email</div>
                         </div>
                         <div class="col-lg-1 mt-2">
                             <span style="font-size: 25px;" *ngIf="signupForm.controls.email.errors?.required">*</span>
@@ -25,14 +25,14 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-5">
-                            <input type="password" class="form-control my-3 p-2" placeholder="Password" formControlName="pass" required/>
+                            <input type="password" [(ngModel)]="pass" class="form-control my-3 p-2" placeholder="Password" formControlName="pass" required/>
                         </div>
                         <div class="col-lg-1 mt-2">
                             <span style="font-size: 25px;" *ngIf="signupForm.controls.pass.errors?.required">*</span>
                         </div>
                         <div class="col-lg-5">
-                            <input type="password" class="form-control my-3 p-2" placeholder="Confirm password" formControlName="conpass" required/>
-                            <span *ngIf="signupForm.controls.conpass.errors?.addr">Passwords do not match</span>
+                            <input type="password" [(ngModel)]="cpass" class="form-control my-3 p-2" placeholder="Confirm password" formControlName="conpass" required/>
+                            <div style="font-size: 10px;" *ngIf="cpass!=pass && (signupForm.controls.conpass.dirty || signupForm.controls.conpass.touched)" class="alert alert-danger mt-3">Password doesn't match</div>
                         </div>
                         <div class="col-lg-1 mt-2">
                             <span style="font-size: 25px;" *ngIf="signupForm.controls.conpass.errors?.required">*</span>
@@ -41,7 +41,7 @@
                     <div class="row">
                         <div class="col-lg-5">
                             <input type="text" class="form-control my-3 p-2" placeholder="Number" formControlName="phone"  required/>
-                            <span *ngIf="signupForm.controls.phone.errors?.pattern">Enter Valid Number</span>
+                            <div style="font-size: 10px;" *ngIf="signupForm.controls.phone.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Number</div>
                         </div>
                         <div class="col-lg-1 mt-2">
                             <span style="font-size: 25px;" *ngIf="signupForm.controls.phone.errors?.required">*</span>
