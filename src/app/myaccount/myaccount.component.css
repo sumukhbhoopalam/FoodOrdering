@@ -19,24 +19,12 @@ section{
 .card {
     border-radius: 30px;
 }
-
-.image {
-    position: relative
+span{
+    color: red;
 }
-
-.image span {
-    color: #fff;
-    padding: 6px;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    font-size: 13px;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: -0px;
-    right: 0px
+img{
+    height: 150px;
+    width: 150px;
 }
 
 .user-details span {

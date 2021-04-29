@@ -12,12 +12,14 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
   providers:[SignupService]
 })
 export class SignupComponent implements OnInit {
-  localUrl:any[] = [];
+  localUrl:string = '';
   finalData : any = null;
   signupForm:FormGroup;
   pass:string = '';
   cpass:string = '';
-  emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+  emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+  urlRegEx = /^(https?:\/\/.*\.(?:png|jpg))$/;
+
   constructor(private router:Router,private ser:SignupService) {
     this.signupForm = new FormGroup({
       name:new FormControl(),
@@ -26,7 +28,7 @@ export class SignupComponent implements OnInit {
       conpass:new FormControl(),
       address:new FormControl(),
       phone:new FormControl('', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      imageurl:new FormControl(),
+      imageurl:new FormControl('',[Validators.pattern(this.urlRegEx)]),
   });
   }
   ngOnInit(): void {
