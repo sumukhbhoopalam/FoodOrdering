@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ItemService} from '../../service/item.service'
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-items',
@@ -10,54 +10,46 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class ItemsComponent implements OnInit {
 
+  item:any='';
   items:any;
-
+  rbutton:any;
+  rveg:number=1;
+  itemForm:FormGroup;
   
-  
-  //initialValues:any;
-  
- // updateItemForm:FormGroup;
-
+ ngOnInit(): void {
+}
 
   constructor(private ser:ItemService) { 
     this.ser.getItems().subscribe(e=>{this.items=e;console.log(this.items)});
-  }
+    this.ser.getItem(2001).subscribe(e=>{this.item=e;console.log(this.item)});
+    
 
-  /*
-    this.updateItemForm = new FormGroup({
-      name:new FormControl(this.item.name),
-      email:new FormControl(this.item.email),
-      address:new FormControl(this.item.address),
-      phone:new FormControl(this.item.phone),
-      imageurl:new FormControl(this.item.imageurl),
+    this.itemForm = new FormGroup({
+      itemid:new FormControl(this.item.itemid, [Validators.required]),
+      itemname:new FormControl(this.item.itemname, [Validators.required]),
+      category:new FormControl(this.item.category, [Validators.required]),
+      veg:new FormControl(this.item.veg, [Validators.required]),
+      quantity:new FormControl(this.item.quantity,),
+      price:new FormControl(this.item.price, [Validators.required]),
+      description:new FormControl(this.item.description,[]),
   });
-  this.initialValues=this.updateItemForm.value
+
   }
 
-
-  onSubmit(data:any){
-    var finalData = JSON.parse(`{
-      "userid":"${this.item.userid}",
-      "name":"${data.name}",
-      "email":"${data.email}",
-      "pass":"${this.item.pass}",
-      "phone":"${data.phone}",
-      "address":"${data.address}",
-      "imageurl":"${data.imageurl}",
-      "role":"${this.item.role}"
-    }`
-    );
-    this.ser.updateItem(this.item.userid,finalData).subscribe(e=>{alert("Updated Details"),this.ser.changeMessage(finalData)},e=>{alert("Unable to update,try again"),console.log(e)})
-  }
-
-  onCancel()
+  onSubmit(data:any)
   {
-    this.updateItemForm.reset(this.initialValues);
+     console.log(data);
   }
 
-*/
+  getit()
+  {
+    
+    alert(this.rbutton);
+  }
 
-  ngOnInit(): void {
+  handleChange()
+  {
+    alert("inside handle change : "+this.rbutton)
   }
 
 }

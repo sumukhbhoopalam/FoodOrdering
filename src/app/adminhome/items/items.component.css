@@ -8,13 +8,25 @@ section{
     border-radius: 30px;
     box-shadow: 12px 12px 22px grey;
 }
-.card {
-    
+
+label{
+    color:white;
 }
 
 .image {
     position: relative
 }
+
+#topbutton{
+    right:10px;
+    bottom: 60px;
+    position: fixed;
+    width:40px;
+    height:40px;
+    
+}
+
+
 
 .image span {
     color: #fff;
@@ -23,16 +35,19 @@ section{
     width: 30px;
     font-size: 13px;
     position: absolute;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     top: -0px;
     right: 0px
 }
 
+
 .user-details span {
     text-align: left
 }
+
+
 
 .inputs label {
     display: flex;
