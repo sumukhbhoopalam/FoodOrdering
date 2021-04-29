@@ -3,6 +3,7 @@ import { SignupService } from '../service/signup.service';
 import {Md5} from 'ts-md5';
 import * as uuid from 'uuid';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-signup',
@@ -13,10 +14,24 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   localUrl:any[] = [];
   finalData : any = null;
-  constructor(private router:Router,private ser:SignupService) { }
-
+  signupForm:FormGroup;
+  pass:string = '';
+  cpass:string = '';
+  emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+  constructor(private router:Router,private ser:SignupService) {
+    this.signupForm = new FormGroup({
+      name:new FormControl(),
+      email:new FormControl('', [Validators.pattern(this.emailRegEx)]),
+      pass:new FormControl(),
+      conpass:new FormControl(),
+      address:new FormControl(),
+      phone:new FormControl('', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+      imageurl:new FormControl(),
+  });
+  }
   ngOnInit(): void {
   }
+
   onSubmit(data:any){
     const myId = uuid.v4();
     const md5 = new Md5();
@@ -33,14 +48,4 @@ export class SignupComponent implements OnInit {
     console.log(this.finalData);
     this.ser.postUser(this.finalData).subscribe(e=>{console.log(e),this.router.navigate(['/login'])},e=>alert("Unable to sign up,check the entered fields"))
   }
-
-  showPreviewImage(event: any) {
-    if (event.target.files && event.target.files[0]) {
-        var reader = new FileReader();
-        reader.onload = (event: any) => {
-            this.localUrl = event.target.result;
-        }
-        reader.readAsDataURL(event.target.files[0]);
-    }
-}
 }

@@ -3,6 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+@media (min-width: 1200px)
+{
 section{
     position: absolute;
     top: 50%;
@@ -11,6 +14,7 @@ section{
     transform: translate(-50%, -50%) ;
     border-radius: 30px;
     box-shadow: 12px 12px 22px grey;
+} 
 }
 .card {
     border-radius: 30px;

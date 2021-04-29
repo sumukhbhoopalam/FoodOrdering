@@ -3,17 +3,18 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+@media (min-width: 1200px)
+{
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1240px;
+}
 section{
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%) 
-}
-@media (min-width: 1200px)
-{
-.container, .container-lg, .container-md, .container-sm, .container-xl {
-    max-width: 1240px;
 }
 }
 .row{

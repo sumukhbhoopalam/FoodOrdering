@@ -13,13 +13,14 @@ export class MyaccountComponent implements OnInit {
   initialValues:any;
   subscription:Subscription;
   updateForm:FormGroup;
+  emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
   constructor(private ser:LoginService) { 
     this.subscription = this.ser.currentMessage.subscribe(e => this.user=e)
     this.updateForm = new FormGroup({
-      name:new FormControl(this.user.name),
-      email:new FormControl(this.user.email),
-      address:new FormControl(this.user.address),
-      phone:new FormControl(this.user.phone),
+      name:new FormControl(this.user.name, [Validators.required]),
+      email:new FormControl(this.user.email, [Validators.required, Validators.pattern(this.emailRegEx)]),
+      address:new FormControl(this.user.address,),
+      phone:new FormControl(this.user.phone, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       imageurl:new FormControl(this.user.imageurl),
   });
   this.initialValues=this.updateForm.value
