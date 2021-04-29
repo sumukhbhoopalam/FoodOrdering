@@ -1,0 +1,35 @@
+
+    <div class="container mx-auto mt-3" style="width:300px;">
+        <h2>Admin Home</h2>
+    </div>
+
+    <section class="Form mt-4 mb-5 mx-5 ">
+        <div class="container mx-auto">
+            <div class="row">
+                
+                
+               <!--
+                <div class="btn-group px-3 py-2"  aria-label="Basic example">
+                    <button type="button" class="btn btn-primary b1" (click)="goToItems()" >Items</button>
+                    <button type="button" class="btn btn-warning b1">Users</button>
+                    <button type="button" class="btn btn-primary b1">Others</button>
+                </div>
+                 -->
+                <nav>
+                <div class=" px-4 py-4">
+                    <a routerLink="./items"  routerLinkActive="active" class="badge col-md-4 badge-primary b1">Items</a>
+                    <a routerLink="./users"  routerLinkActive="active" class="badge col-md-4 badge-success b1">Users</a>
+                    <a routerLink="./"  routerLinkActive="active" class="badge col-md-4 badge-primary b1">Others</a>
+                </div>
+                </nav>
+                
+                <router-outlet></router-outlet>
+                
+
+                
+
+                  
+              
+            </div>
+        </div>
+    </section>
