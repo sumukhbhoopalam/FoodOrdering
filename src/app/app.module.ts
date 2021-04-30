@@ -14,6 +14,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { ItemsComponent } from './adminhome/items/items.component';
 import { UsersComponent } from './adminhome/users/users.component';
+import { ItemtableComponent } from './adminhome/items/itemtable/itemtable.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { UsersComponent } from './adminhome/users/users.component';
     HomeComponent,
     MyaccountComponent,
     ItemsComponent,
-    UsersComponent
+    UsersComponent,
+    ItemtableComponent
   ],
   imports: [
     BrowserModule,

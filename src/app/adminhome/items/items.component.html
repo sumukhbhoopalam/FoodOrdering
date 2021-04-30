@@ -17,8 +17,8 @@
         </div>
 
         <div class="p-3  col-md-2 badge-success  form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio3" value="update"/>
-            <label class="form-check-label" for="inlineRadio3">Update</label>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio3" value="create"/>
+            <label class="form-check-label" for="inlineRadio3">Create</label>
         </div>
 
         <div class="p-3 col-md-2  badge-primary form-check form-check-inline">
@@ -26,9 +26,14 @@
             <label class="form-check-label" for="inlineRadio4">Delete</label>
         </div>       
     </div>
-    <button (click)="getit()" >Which Button</button>
    
-    <div class="row justify-content-center">
+    <div class="container ">
+        <div class="row mt-4 justify-content-center">
+            <button class="col-md-4 btn1"  (click)="getit()" >Get Data</button>
+        </div>
+    </div>
+   
+    <div class="row my-3 justify-content-center">
 
       <div class="align-items-center col-md-9 my-3 bg-primary">  
 
@@ -36,60 +41,66 @@
             <div class="form-row">
                 
                 <div class="col-md-6">
-                    <div class="inputs"> <label>Item Id</label> <input formControlName="itemid" class="form-control" type="number"  required > </div>
+                    <div class="inputs"> <label>Item Id</label> <input [readonly]="IROitemid" formControlName="itemid" class="form-control" type="number"  [required]="!IROitemid" /> </div>
                 </div>
                 
                 <div class="col-md-6">
-                    <div class="inputs"> <label>Item Name</label> <input formControlName="itemname" class="form-control" type="text"  required > </div>
+                    <div class="inputs"> <label>Item Name</label> <input [readonly]="IROitemname" formControlName="itemname" name="itemname" class="form-control" type="text"  [required]="!IROitemname" /> </div>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="inputs"> <label>Category</label> <input class="form-control" formControlName="category" type="text"  required> </div>
+                    <div class="inputs"> <label>Category</label> <input class="form-control" [readonly]="IROcategory" formControlName="category" type="text"  [required]="!IROcategory" /> </div>
                 </div>     
 
                 <div class="col-md-6">
-                    <div class="inputs"> <label>Quantity</label> <input formControlName="quantity" class="form-control" type="number"  required > </div>
+                    <div class="inputs"> <label>Quantity</label> <input [readonly]="IROquantity" formControlName="quantity" class="form-control" type="number"  [required]="!IROquantity" /> </div>
                 </div>                                
+
+ 
+                
 
 
                 <div class="col-md-6 d-flex pt-4 justify-content-center">
                     
-                    <div class=" col-md-4  form-check form-check-inline">
-                        <input class="form-check-input" type="radio"  formControlName="veg" [(ngModel)]="rveg" id="inlineRadio10" value="1"/>
-                        <label class="form-check-label" for="inlineRadio10">Veg</label>
+                    <div class="custom-control col-md-3  form-check form-check-inline">
+                        <input class="custom-control-input  form-check-input bg-danger"  type="radio"  [readonly]="IROveg" formControlName="veg" [(ngModel)]="rveg" id="inlineRadio10" [value]=true/>
+                        <label class="custom-control-label gg  form-check-label" for="inlineRadio10">Veg</label>
                     </div>
-            
-                    <div class=" col-md-4   form-check form-check-inline">
-                        <input class="form-check-input" type="radio"   formControlName="veg" [(ngModel)]="rveg" id="inlineRadio11" value="0"/>
-                        <label class="form-check-label" for="inlineRadio11">Non-Veg</label>
+        
+                    <div class="custom-control col-md-6   form-check form-check-inline">
+                        <input class="custom-control-input  form-check-input" type="radio"   [readonly]="IROveg" formControlName="veg" [(ngModel)]="rveg" id="inlineRadio11" [value]=false/>
+                        <label class="custom-control-label rr form-check-label" for="inlineRadio11">Non-Veg</label>
                     </div>
                     
                 </div>
+
+                <div class="col-md-6">
+                    <div class="inputs"> <label>Price</label> <input [readonly]="IROprice"  formControlName="price" class="form-control" type="number"  [required]="!IROprice"  /> </div>
+                </div>
+
                 
-                <div class="col-md-6">
-                    <div class="inputs"> <label>Price</label> <input formControlNamename="price" class="form-control" type="number"  required> </div>
-                </div>
-
                 <div class="col-md-12">
-                    <div class="inputs"> <label>Description</label> <textarea class="form-control" formControlNamename="description" type="text" ></textarea> </div>
+                    <div class="inputs"> <label>Description</label> <textarea [readonly]="IROdescription" class="form-control" formControlName="description" type="text"></textarea> </div>
                 </div>  
+
+              
+                
             
             </div>
 
-            <div class="form-row">
-                <div class="col-md-6">
-                    
-                </div>
-            </div>
+
 
             <div class="mt-3 gap-2 d-flex justify-content-end"> 
-                <input type="button"  class="px-3 mb-4 btn " value="Cancel"/> 
-              <input type="submit" class="px-3 mb-4 btn" value="Update"/> 
+                <input type="reset"  class="px-3 mb-4 btn " value="Reset"/> 
+              <input type="submit" class="px-3 mb-4 btn" value="Submit" [disabled]="itemForm.invalid"/> 
             </div>  
         </form >    
       </div>
 
     </div>
+
+
+    <nested-item-table></nested-item-table>
     
 
 </div>

@@ -23,4 +23,15 @@ export class ItemService {
   {
     return this.http.put('http://localhost:62289/api/items/'+id,s);
   }
+
+  PostItem(s:any)
+  {
+    return this.http.post('http://localhost:62289/api/items/',s);
+  }
+
+  DeleteItem(s:any)
+  {
+    return this.http.delete('http://localhost:62289/api/items/'+s);
+  }
+
 }

@@ -4,11 +4,12 @@
     </video>
 </div>
 
+
 <div class="row mx-xl-5" >
     <div class="col-xl-3 mx-xl-5 col-lg-6 col-md-6 my-2" *ngFor="let data of dummydata">
       <mdb-card>
-        <div class="view overlay waves-light" mdbWavesEffect>
-          <img class="img-fluid" style="height:200px" src={{data.image}} />
+        <div class="view overlay waves-light " mdbWavesEffect>
+          <mdb-card-img class="img-fluid " style="height:200px" src={{data.image}} alt="Card image cap"></mdb-card-img>
           <a>
             <div class="mask rgba-white-slight"></div>
           </a>
