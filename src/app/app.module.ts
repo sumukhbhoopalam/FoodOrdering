@@ -14,6 +14,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { ItemsComponent } from './adminhome/items/items.component';
 import { UsersComponent } from './adminhome/users/users.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
 
 
 @NgModule({
@@ -29,11 +32,13 @@ import { UsersComponent } from './adminhome/users/users.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
