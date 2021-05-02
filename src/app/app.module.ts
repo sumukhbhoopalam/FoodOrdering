@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +13,9 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 import { ItemsComponent } from './adminhome/items/items.component';
 import { UsersComponent } from './adminhome/users/users.component';
 import { ItemtableComponent } from './adminhome/items/itemtable/itemtable.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
 
 
 @NgModule({
@@ -31,11 +32,13 @@ import { ItemtableComponent } from './adminhome/items/itemtable/itemtable.compon
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

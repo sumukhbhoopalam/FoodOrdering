@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../service/login.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,17 @@ export class HomeComponent implements OnInit {
     {itemname:'Paneer Biryani',category:'Indian',price:'450',description:"Paneer biryani is an Indian dish made with paneer, basmati rice, spices & herbs. This paneer biryani is unique, flavorful & amazingly delicious. Biryani is most commonly made with meat but this recipe uses paneer aka Indian cottage cheese.",veg:true,image:'https://foodorderingdocs.blob.core.windows.net/images/5011.jpg',ratings:'5'},
 
   ]
+  customOptions: OwlOptions = {
+    items: 1,
+    loop: true,
+    stagePadding: 0,
+    margin: 0,
+    autoplay: true,
+    animateOut: 'slideOutDown',
+    animateIn: 'fadeIn',
+    nav: true,
+    //navText: ['<button class="btn value="Prev"></button>', '<button class="btn value="Next"></button>']
+  }
   constructor(private ser:LoginService){
   }
   

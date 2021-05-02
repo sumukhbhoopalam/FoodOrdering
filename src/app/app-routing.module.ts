@@ -18,8 +18,6 @@ const routes: Routes = [
       {path:'users',component:UsersComponent}
     ]  
   },
-  {path:'signup',component:SignupComponent},
-  {path:'signup',component:SignupComponent},
   {path:'home',component:HomeComponent},
   {path:'myaccount',component:MyaccountComponent}
 ];

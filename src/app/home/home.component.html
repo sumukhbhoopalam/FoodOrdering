@@ -1,15 +1,45 @@
-<div align="center" class="embed-responsive embed-responsive-16by9">
-    <video style="object-fit: cover;" autoplay loop class="embed-responsive-item">
-        <source style="width: 100%;" src="https://cdn.jotfor.ms/assets/video/landing/food-ordering-system/introduction.mp4?v=0.1" type="video/mp4">
-    </video>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+<div class="content">
+  <div class="site-blocks-cover">
+    <div class="img-wrap">
+      <owl-carousel-o [options]="customOptions" class="slide-one-item hero-slider">
+        <ng-template carouselSlide>
+          <div class="slide">
+            <img src="https://thumbs.dreamstime.com/b/food-cold-snacks-top-view-setting-dark-background-variety-food-plates-cold-snacks-top-view-black-background-assortment-115128993.jpg" alt="">  
+          </div> 
+        </ng-template>
+        <ng-template carouselSlide>
+          <div class="slide">
+            <img src="https://previews.123rf.com/images/baibakova/baibakova1908/baibakova190800142/129010608-assorted-indian-food-on-black-background-indian-cuisine-.jpg" alt="">  
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ml-auto align-self-center">
+          <div class="intro">
+            <div class="heading">
+              <h1 class="text-white font-weight-bold">Hakuna Matata</h1>
+            </div>
+            <div class="text sub-text">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi omnis qui distinctio.</p>
+              <a style="color: white;" class="btn btn-outline-primary btn-md btn-pill">Menu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- END .site-blocks-cover -->
 </div>
-
-
 <div class="row mx-xl-5" >
     <div class="col-xl-3 mx-xl-5 col-lg-6 col-md-6 my-2" *ngFor="let data of dummydata">
       <mdb-card>
-        <div class="view overlay waves-light " mdbWavesEffect>
-          <mdb-card-img class="img-fluid " style="height:200px" src={{data.image}} alt="Card image cap"></mdb-card-img>
+        <div class="view overlay waves-light" mdbWavesEffect>
+          <mdb-card-img class="img-fluid" style="height:200px" src={{data.image}} alt="Card image cap"></mdb-card-img>
           <a>
             <div class="mask rgba-white-slight"></div>
           </a>
