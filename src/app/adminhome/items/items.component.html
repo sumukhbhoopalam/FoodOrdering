@@ -1,4 +1,4 @@
-<p>Site is still under construction !</p>
+
 
 <div class="text-center container mx-auto mt-3" style="width:300px;">
     <h2>ITEMS CRUD</h2>
@@ -41,8 +41,14 @@
             <div class="form-row">
                 
                 <div class="col-md-6">
-                    <div class="inputs"> <label>Item Id</label> <input [readonly]="IROitemid" formControlName="itemid" class="form-control" type="number"  [required]="!IROitemid" /> </div>
+                    <div class="inputs"> <label>Item Id</label> <input [readonly]="IROitemid" formControlName="itemid" class="form-control" type="number"  [required]="!IROitemid"  /> </div>
+                    <!--<div style="font-size: 10px;" *ngIf="itemForm.controls.itemid.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Id</div>-->
                 </div>
+                <!--
+                <div class="col-lg-1">
+                    <span style="font-size: 25px; color:red" *ngIf="itemForm.controls.itemid.errors?.required">*</span>
+                </div>
+                -->
                 
                 <div class="col-md-6">
                     <div class="inputs"> <label>Item Name</label> <input [readonly]="IROitemname" formControlName="itemname" name="itemname" class="form-control" type="text"  [required]="!IROitemname" /> </div>
@@ -99,10 +105,11 @@
 
     </div>
 
+</div>
 
-    <nested-item-table></nested-item-table>
-    
 
+<div class="container nested-comp ">
+    <nested-item-table [itemslist]="items"></nested-item-table>
 </div>
 
   

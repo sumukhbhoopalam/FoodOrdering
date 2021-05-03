@@ -124,3 +124,9 @@ label{
     border: 1px solid;
     color: black;
 }
+
+.nested-comp{
+	display: block;
+	overflow: auto;
+    padding-bottom: 30px;
+}

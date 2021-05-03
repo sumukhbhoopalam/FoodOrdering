@@ -8,6 +8,7 @@ import { throwError, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 
+
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
@@ -21,7 +22,9 @@ export class ItemsComponent implements OnInit {
   rveg:number=1;
   itemForm:FormGroup;
   error1:any;
-  ;
+  
+  itemidRegEx = /^[0-9]{4}$/;
+
 
   IROitemid:boolean=false;
   IROitemname:boolean=false;
@@ -35,12 +38,12 @@ export class ItemsComponent implements OnInit {
 }
 
   constructor(private ser:ItemService) { 
-    this.ser.getItems().subscribe(e=>{this.items=e;console.log(this.items)});
+    this.ser.getItems().subscribe(e=>{this.items=e; });
     
     
 
     this.itemForm = new FormGroup({
-      itemid:new FormControl(2044, []),
+      itemid:new FormControl(2001, [Validators.pattern(this.itemidRegEx)] ),
       itemname:new FormControl("", []),
       category:new FormControl(this.item.category, []),
       veg:new FormControl(this.item.veg, []),
@@ -85,7 +88,7 @@ export class ItemsComponent implements OnInit {
 
     }
     else if(this.rbutton=='edit')
-    {
+    { //console.log("inside edit");
       try{
 
         if(this.rbutton=='edit')
@@ -96,8 +99,10 @@ export class ItemsComponent implements OnInit {
           setTimeout(function()
             {
               temp.patchValue(temp.item);
-              alert("Put Reqest is Successful");
-              console.log("Put Reqest is Successful");
+              alert("Updated Successfully");
+              console.log("Updated Successfully");
+              temp.ser.getItems().subscribe(e=>{temp.items=e;});
+              console.log("Updated items list")
             },
             2000);
 
@@ -116,12 +121,15 @@ export class ItemsComponent implements OnInit {
           this.ser.PostItem(data).subscribe(e=>{this.item=e;console.log(this.item)},error=>{ this.error1=error; alert("Unable to update data")});
       
           //this.itemForm.get('veg')?.enable();      
-          //var temp=this;
+          var temp=this;
           setTimeout(function()
             {
               //temp.patchValue(temp.item);
               alert("Post Req is Successful");
               console.log("Post Reqest is Successful");
+              temp.ser.getItems().subscribe(e=>{temp.items=e;});
+              console.log("Updated items list")
+              
             },
             2000);
 
@@ -141,11 +149,14 @@ export class ItemsComponent implements OnInit {
            this.ser.DeleteItem(data.itemid).subscribe(e=>{console.log(e)},error=>{ this.error1=error; alert("Unable to update data")});
           //this.itemForm.get('veg')?.enable();      
             this.itemForm.reset();
+            var temp=this;
           setTimeout(function()
             {
               //temp.patchValue(temp.item);
               alert("Delete Req is Successful");
               console.log("Delete Reqest is Successful");
+              temp.ser.getItems().subscribe(e=>{temp.items=e;});
+              console.log("Updated items list")
             },
             1000);
             
