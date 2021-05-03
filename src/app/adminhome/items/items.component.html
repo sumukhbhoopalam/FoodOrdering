@@ -40,20 +40,31 @@
         <form [formGroup]="itemForm" (ngSubmit)="onSubmit(itemForm.value)">
             <div class="form-row">
                 
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div class="inputs"> <label>Item Id</label> <input [readonly]="IROitemid" formControlName="itemid" class="form-control" type="number"  [required]="!IROitemid"  /> </div>
-                    <!--<div style="font-size: 10px;" *ngIf="itemForm.controls.itemid.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Id</div>-->
+                    
                 </div>
-                <!--
-                <div class="col-lg-1">
+                
+                <div class="col-md-1">
                     <span style="font-size: 25px; color:red" *ngIf="itemForm.controls.itemid.errors?.required">*</span>
                 </div>
-                -->
+              
                 
                 <div class="col-md-6">
                     <div class="inputs"> <label>Item Name</label> <input [readonly]="IROitemname" formControlName="itemname" name="itemname" class="form-control" type="text"  [required]="!IROitemname" /> </div>
                 </div>
+            </div>  
+                
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div   style="font-size: 2px;" *ngIf="itemForm.controls.itemid.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Id</div>
+                </div>
+                <div class="col-md-6">
+                    <div style="font-size: 2px;" *ngIf="itemForm.controls.itemname.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Itemname</div>
+                </div>
+            </div>
 
+            <div class="form-row">  
                 <div class="col-md-6">
                     <div class="inputs"> <label>Category</label> <input class="form-control" [readonly]="IROcategory" formControlName="category" type="text"  [required]="!IROcategory" /> </div>
                 </div>     
@@ -61,9 +72,18 @@
                 <div class="col-md-6">
                     <div class="inputs"> <label>Quantity</label> <input [readonly]="IROquantity" formControlName="quantity" class="form-control" type="number"  [required]="!IROquantity" /> </div>
                 </div>                                
+            </div>
 
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div   style="font-size: 2px;" *ngIf="itemForm.controls.category.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Category</div>
+                </div>
+                <div class="col-md-6">
+                    <div style="font-size: 2px;" *ngIf="itemForm.controls.quantity.errors?.pattern" class="alert alert-danger mt-3">Quantity should be 0-9999</div>
+                </div>
+            </div>
  
-                
+            <div class="form-row">
 
 
                 <div class="col-md-6 d-flex pt-4 justify-content-center">
@@ -79,20 +99,33 @@
                     </div>
                     
                 </div>
+            
+
 
                 <div class="col-md-6">
                     <div class="inputs"> <label>Price</label> <input [readonly]="IROprice"  formControlName="price" class="form-control" type="number"  [required]="!IROprice"  /> </div>
                 </div>
 
-                
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6">
+                    
+                </div>
+                <div class="col-md-6">
+                    <div style="font-size: 2px;" *ngIf="itemForm.controls.price.errors?.pattern" class="alert alert-danger mt-3">Price should be 1-999999</div>
+                </div>
+            </div>
+
+            <div class="form-row">
                 <div class="col-md-12">
                     <div class="inputs"> <label>Description</label> <textarea [readonly]="IROdescription" class="form-control" formControlName="description" type="text"></textarea> </div>
                 </div>  
-
+            </div>
               
                 
             
-            </div>
+            
 
 
 

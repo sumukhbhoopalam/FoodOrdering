@@ -24,6 +24,10 @@ export class ItemsComponent implements OnInit {
   error1:any;
   
   itemidRegEx = /^[0-9]{4}$/;
+  itemnameRegEx = /^[\w\)\(\[\]\s]{0,30}$/;
+  categoryRegEx =  /^[\s\w-]{0,20}$/;
+  qunatityRegEx =  /^[1-9]{1}[0-9]{0,3}$/;
+  priceRegEx =  /^[1-9]{1}[0-9]{0,5}$/;
 
 
   IROitemid:boolean=false;
@@ -44,11 +48,11 @@ export class ItemsComponent implements OnInit {
 
     this.itemForm = new FormGroup({
       itemid:new FormControl(2001, [Validators.pattern(this.itemidRegEx)] ),
-      itemname:new FormControl("", []),
-      category:new FormControl(this.item.category, []),
+      itemname:new FormControl("", [Validators.pattern(this.itemnameRegEx)]),
+      category:new FormControl(this.item.category, [Validators.pattern(this.categoryRegEx)]),
       veg:new FormControl(this.item.veg, []),
-      quantity:new FormControl(this.item.quantity,[]),
-      price:new FormControl(this.item.price, []),
+      quantity:new FormControl(this.item.quantity,[Validators.pattern(this.qunatityRegEx)]),
+      price:new FormControl(this.item.price, [Validators.pattern(this.priceRegEx)]),
       description:new FormControl(this.item.description,[]),
   });
 
