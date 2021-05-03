@@ -31,9 +31,9 @@
                     </div>
                     <div>
                       <div class="def-number-input number-input safari_only mb-0 w-100">
-                        <button (click)="decrement(cartItem)" class="btn btn-dark"><mdb-icon fas icon="minus"></mdb-icon></button>
+                        <button (click)="decrement(cartItem,indexOfelement)" class="btn btn-dark"><mdb-icon fas icon="minus"></mdb-icon></button>
                         <input class="quantity" min="1" name="quantity" value={{cartItem.quantity}} type="number" disabled>
-                        <button (click)="increment(cartItem)" class="btn btn-dark"><mdb-icon fas icon="plus"></mdb-icon></button>
+                        <button (click)="increment(cartItem,indexOfelement)" class="btn btn-dark"><mdb-icon fas icon="plus"></mdb-icon></button>
                       </div>
                     </div>
                   </div>
@@ -74,7 +74,7 @@
                 <span><strong>&#8377;{{total}}</strong></span>
               </li>
             </ul>
-            <button type="button" class="btn btn-primary btn-block">Order Now</button>
+            <button (click)="order()" type="button" class="btn btn-primary btn-block">Order Now</button>
           </div>
         </div>
       </div>

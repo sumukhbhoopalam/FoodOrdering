@@ -18,6 +18,9 @@ export class CartService {
   putItem(id:any,s:any):Observable<object>{
     return this.http.put('http://localhost:62289/api/carts/'+id,s)
   }
+  putOrder(id:any,s:any):Observable<object>{
+    return this.http.put('http://localhost:62289/api/cartsorder/'+id,s)
+  }
   deleteItem(s:any):Observable<object>{
     return this.http.delete('http://localhost:62289/api/carts/'+s);
   }

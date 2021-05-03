@@ -2,24 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
 import { ItemService } from '../service/item.service';
 import { LoginService } from '../service/login.service';
+import { OrderService } from '../service/order.service';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
-  providers:[CartService,ItemService]
+  providers:[CartService,ItemService,OrderService]
 })
 export class CartComponent implements OnInit {
   user:any =[];
   cartItems:any = [];
   itemData:any = [];
   total:any = 0;
-  constructor(private ser:LoginService,private cart:CartService,private itemser:ItemService) {     
+  constructor(private ser:LoginService,private cart:CartService,private itemser:ItemService,private orderser:OrderService) {     
   }
   remove(e:any){
     this.cart.deleteItem(e).subscribe(d=>{alert("Item Removed"),this.ngOnInit()});
   }
-  decrement(e:any)
+  decrement(e:any,index:any)
   {
     var finalData=[];
     finalData = JSON.parse(
@@ -29,7 +31,7 @@ export class CartComponent implements OnInit {
         "orderid": null,
         "itemid": "${e.itemid}",
         "quantity": "${e.quantity-1}",
-        "price": "${e.price * (e.quantity-1)}"
+        "price": "${this.itemData[index].price * (e.quantity-1)}"
       }`
     );
     if(e.quantity>1){
@@ -39,7 +41,7 @@ export class CartComponent implements OnInit {
       alert("1 is the minimum");
     }
   }
-  increment(e:any)
+  increment(e:any,index:any)
   {
     var finalData=[];
     finalData = JSON.parse(
@@ -49,10 +51,40 @@ export class CartComponent implements OnInit {
         "orderid": null,
         "itemid": "${e.itemid}",
         "quantity": "${e.quantity+1}",
-        "price": "${e.price * (e.quantity+1)}"
+        "price": "${this.itemData[index].price * (e.quantity+1)}"
       }`
     );
     this.cart.putItem(e.cartid,finalData).subscribe(e=>{alert("Successfuly Updated"),this.ngOnInit()});
+  }
+  order(){
+    var finalData=[];
+    var finData=[];
+    const myId = uuid.v4();
+    finalData = JSON.parse(
+      `{
+        "orderid":"${myId}",
+        "totprice":"${this.total}",
+        "orderstatus":"processing",
+        "orddatetime":"${new Date(Date.now()).toISOString()}",
+        "userid":"${this.user.userid}"
+      }`
+    );
+    console.log("Order",finalData)
+    this.orderser.postOrder(finalData).subscribe((e:any)=>{
+      this.cartItems.map((i:any)=>{
+        finData = JSON.parse(
+          `{
+            "cartid":"${i.cartid}",
+            "userid": "${i.userid}",
+            "orderid": "${e.orderid}",
+            "itemid": "${i.itemid}",
+            "quantity": "${i.quantity}",
+            "price": "${i.price}"
+          }`
+        );
+        this.cart.putItem(i.cartid,finData).subscribe(l=>{this.ngOnInit()},l=>{alert("Order Unsuccessful")})
+      })
+    },e=>{alert("Order Unsuccessful")},()=>{alert("Order Sucessful")})
   }
   ngOnInit(): void {
     this.total=0;
