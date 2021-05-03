@@ -14,8 +14,8 @@ import { ItemsComponent } from './adminhome/items/items.component';
 import { UsersComponent } from './adminhome/users/users.component';
 import { ItemtableComponent } from './adminhome/items/itemtable/itemtable.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './cart/cart.component'; 
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
@@ -30,7 +30,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MyaccountComponent,
     ItemsComponent,
     UsersComponent,
-    ItemtableComponent
+    ItemtableComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
