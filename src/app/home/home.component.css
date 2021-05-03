@@ -1,3 +1,9 @@
+.view{
+    height: 170px;
+}
+.bodytext {
+    height: 200px;
+}
 p {
     color: black;
     font-weight: 300; 
@@ -19,7 +25,6 @@ a:hover {
 }
 
 .content {
-    padding: 7rem 0;
     background-color: rgba(0, 0, 0, 0.37); 
 }
 
@@ -56,19 +61,10 @@ h2 {
     font-weight: 500;
     line-height: 1; 
 }
-@media (max-width: 991.98px) {
-    .site-blocks-cover h1 {
-        font-size: 4rem; 
-    } 
-}
 .site-blocks-cover .sub-text {
     font-size: 1.4rem;
     color: black;
     font-weight: 300; 
-}
-@media (max-width: 991.98px) {
-    .site-blocks-cover .sub-text {
-        color: #000; } 
 }
 .site-blocks-cover .img-wrap {
     position: absolute;
@@ -81,24 +77,6 @@ h2 {
     min-height: 600px;
     overflow: hidden;
     border-bottom-right-radius: 200px; 
-}
-@media (max-width: 991.98px) {
-    .site-blocks-cover .img-wrap {
-        width: 100%;
-        right: 0%;
-        top: 0; 
-    }
-    .site-blocks-cover .img-wrap .hero-slider:before {
-        position: absolute;
-        content: "";
-        background: #fff;
-        opacity: .5;
-        z-index: 2;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0; 
-    } 
 }
 .site-blocks-cover .img-wrap .slide {
     height: 100vh;
@@ -119,18 +97,8 @@ h2 {
 .site-blocks-cover .intro .heading { 
     margin-left: -150px; 
 }
-@media (max-width: 991.98px) {
-    .site-blocks-cover .intro .heading {
-    margin-left: 0;     
-    } 
-}
 .site-blocks-cover .intro .text {
     padding-left: 50px; 
-}
-@media (max-width: 991.98px) {
-    .site-blocks-cover .intro .text {
-        padding-left: 0; 
-    } 
 }
 
 .site-menu-toggle .menu-text {
@@ -149,3 +117,5 @@ h2 {
     border-color: #fff;
     color: #000;
  }
+ .owl-nav {
+}
