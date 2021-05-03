@@ -20,6 +20,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { OrdersComponent } from './adminhome/orders/orders.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { OrdersComponent } from './adminhome/orders/orders.component';
     ItemsComponent,
     ItemtableComponent,
     CartComponent,
-    OrdersComponent
+    OrdersComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

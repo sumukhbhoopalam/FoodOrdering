@@ -8,6 +8,7 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 import { ItemsComponent } from './adminhome/items/items.component';
 import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './adminhome/orders/orders.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
     ]  
   },
   {path:'home',component:HomeComponent},
+  {path:'about',component:AboutComponent},
   {path:'myaccount',component:MyaccountComponent},
   {path:'cart',component:CartComponent}
 ];

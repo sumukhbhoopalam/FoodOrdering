@@ -5,6 +5,10 @@
         <li class="nav-item">
           <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> Home</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" routerLink="/about" mdbWavesEffect><mdb-icon fas icon="at"></mdb-icon> About</a>
+        </li>
+
         <li *ngIf="user===''; else lgout" class="nav-item dropdown" dropdown>
           <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
             <mdb-icon fas icon="info-circle"></mdb-icon>Profile<span class="caret"></span></a>
