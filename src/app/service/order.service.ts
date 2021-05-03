@@ -16,4 +16,7 @@ export class OrderService {
   deleteOrder(s:any):Observable<object>{
     return this.http.delete('http://localhost:62289/api/orders/'+s);
   }
+  getOrderItems(s:any):Observable<object>{
+    return this.http.get('http://localhost:62289/api/cartsorder/'+s);
+  }
 }
