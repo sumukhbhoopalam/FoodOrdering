@@ -1,0 +1,178 @@
+
+<!--
+
+
+<div   class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+
+-->
+
+
+<div class="container data mat-elevation-z8">
+    <mat-paginator #paginator class="pag"
+    [pageSize]="5"  
+    [pageSizeOptions]="[5, 10, 20]">
+   </mat-paginator>
+
+    <mat-table  [dataSource]="dataSource" matSort >
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="itemid">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ItemId </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.itemid}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="itemname">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Item Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.itemname}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Category </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="veg">
+        <mat-header-cell *matHeaderCellDef> Veg </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.veg}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef> Image</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.image}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="ratings">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Ratings </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.ratings}} </mat-cell>
+      </ng-container>
+
+
+      
+   
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </mat-table>
+
+    <ng-template #load>
+      <img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif">
+   </ng-template>
+  
+
+</div>  
+
+ 
+  
+  
+  <!-- Copyright 2019 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
+
+      <!--
+<p>itemtable works</p>
+
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+
+
+
+<div class="container data mat-elevation-z8">
+    <mat-paginator #paginator class="pag"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 20]">
+   </mat-paginator>
+
+    <mat-table *ngIf="items1;else load" [dataSource]="dataSource" matSort >
+  
+     
+      <ng-container matColumnDef="itemid">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ItemId </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.itemid}} </mat-cell>
+      </ng-container>
+  
+     
+      <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef > Quantity </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="itemname">
+        <mat-header-cell *matHeaderCellDef> Item Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.itemname}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="veg">
+        <mat-header-cell *matHeaderCellDef> Veg </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.veg}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef> Image</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.image}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="ratings">
+        <mat-header-cell *matHeaderCellDef> Ratings </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.ratings}} </mat-cell>
+      </ng-container>
+
+
+      
+   
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </mat-table>
+
+    <ng-template #load>
+      <img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif">
+   </ng-template>
+  
+
+</div>  
+
+
+
+      -->
