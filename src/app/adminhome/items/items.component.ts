@@ -37,6 +37,7 @@ export class ItemsComponent implements OnInit {
   IROquantity:boolean=false;
   IROprice:boolean=false;
   IROdescription:boolean=false;
+  IROimage:boolean=false;
   
  ngOnInit(): void {
 }
@@ -54,6 +55,7 @@ export class ItemsComponent implements OnInit {
       quantity:new FormControl(this.item.quantity,[Validators.pattern(this.qunatityRegEx)]),
       price:new FormControl(this.item.price, [Validators.pattern(this.priceRegEx)]),
       description:new FormControl(this.item.description,[]),
+      image:new FormControl(this.item.image,[])
   });
 
   }
@@ -218,7 +220,8 @@ export class ItemsComponent implements OnInit {
       this.ser.getItem(id).subscribe(
         e=>
         {         this.item=e;
-                  console.log(this.item)
+                  console.log(this.item);
+                  //this.IROveg=true;
                   tempitemform.patchValue(temp.item);
         },
          error=>{ 
@@ -249,6 +252,7 @@ export class ItemsComponent implements OnInit {
             this.IROquantity=true;
             this.IROprice=true;
             this.IROdescription=true;
+            this.IROimage=true;
             console.log("All fields are made 'readonly' except 'itemid' ");          
     }
     else if(this.rbutton=='edit' || this.rbutton=='create' )
@@ -266,6 +270,7 @@ export class ItemsComponent implements OnInit {
       this.IROquantity=false;
       this.IROprice=false;
       this.IROdescription=false;
+      this.IROimage=false;
       console.log("All fields are made editable except 'itemid' ");   
         
     }
