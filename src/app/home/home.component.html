@@ -1,14 +1,62 @@
-<div align="center" class="embed-responsive embed-responsive-16by9">
-    <video style="object-fit: cover;" autoplay loop class="embed-responsive-item">
-        <source style="width: 100%;" src="https://cdn.jotfor.ms/assets/video/landing/food-ordering-system/introduction.mp4?v=0.1" type="video/mp4">
-    </video>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+<div class="d-none d-lg-block">
+<div class="content">
+  <div class="site-blocks-cover">
+    <div class="img-wrap">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide>
+            <img class="slide img-fluid" src="../../assets/carousel1.jpg" alt="">  
+        </ng-template>
+        <ng-template carouselSlide>
+            <img class="slide img-fluid" src="../../assets/carousel2.jpg" alt="">
+        </ng-template>
+        <ng-template carouselSlide>
+            <img class="slide img-fluid" src="../../assets/carousel3.jpg" alt="">  
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ml-auto align-self-center">
+          <div class="intro">
+            <div class="heading">
+              <h1 class="text-white font-weight-bold">Hakuna Matata</h1>
+            </div>
+            <div class="text sub-text">
+              <p>Order Food Online. Get the best bang for your buck.</p>
+              <p>Please stay home and stay safe while we deliver your favourite delicacies.</p>
+              <a style="color: white;" class="btn btn-outline-primary btn-md btn-pill">Menu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
 </div>
-
+</div>
+<div class="d-lg-none">
+  <div class="wrapper">
+    <owl-carousel-o [options]="customOptions1">
+      <ng-template carouselSlide>         
+        <img class="img-fluid" src="../../assets/carousel1.jpg" alt="">  
+      </ng-template>  
+      <ng-template carouselSlide>            
+        <img class="img-fluid" src="../../assets/carousel2.jpg" alt="">  
+      </ng-template>
+      <ng-template carouselSlide>            
+        <img class="img-fluid" src="../../assets/carousel3.jpg" alt="">  
+      </ng-template>  
+    </owl-carousel-o> 
+  </div>
+</div>
 <div class="row mx-xl-5" >
-    <div class="col-xl-3 mx-xl-5 col-lg-6 col-md-6 my-2" *ngFor="let data of dummydata">
+    <div class="col-xl-3 mx-xl-5 col-lg-6 col-md-6 my-2" *ngFor="let data of items">
       <mdb-card>
         <div class="view overlay waves-light" mdbWavesEffect>
-          <img class="img-fluid" style="height:200px" src={{data.image}} />
+          <mdb-card-img class="img-fluid" style="height:300px" src={{data.image}} alt="Card image cap"></mdb-card-img>
           <a>
             <div class="mask rgba-white-slight"></div>
           </a>
@@ -27,21 +75,20 @@
             </ng-template>
          </div>        
           <mdb-card-text class="white-text">
-            {{data.description}}
+            <p class="bodytext white-text">{{data.description}}</p>
           </mdb-card-text>
           <hr class="hr-light">
           <div class="row">
             <div class="white-text d-flex col-lg-5 font-weight-bold">&#8377;{{data.price}}</div>
-            <button class="btn d-flex col-lg-7">
+            <button *ngIf="user" (click)="cartData(data)" class="btn d-flex col-lg-7">
                 <p class="waves-light white-text" mdbWavesEffect>Add to Cart
                 <span>
                     <mdb-icon fas icon="cart-plus" class="pl-2 waves-light" mdbWavesEffect></mdb-icon>
                 </span>
-            </p>
+              </p>
             </button>
          </div>
         </mdb-card-body>
       </mdb-card>
     </div>
-    
 </div>
