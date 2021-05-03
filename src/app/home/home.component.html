@@ -52,8 +52,33 @@
     </owl-carousel-o> 
   </div>
 </div>
+<hr />
+
+<div class="text-center">
+  <h1>Our Items</h1>
+</div>
+<div class="text-center">
+  <button class="btn btn-dark mx-3"><mdb-icon fas icon="filter"></mdb-icon>Filters</button>
+  <button *ngIf='veg; else nv' (click)="vegClick()" class="btn btn-dark mx-3">Pure Veg</button>
+  <ng-template #nv>
+    <button (click)="vegClick()" class="btn btn-light mx-3">Pure Veg</button>
+  </ng-template>
+  <button *ngIf='italian; else ni' (click)="italianClick()" class="btn btn-dark mx-3">Italian</button>
+  <ng-template #ni>
+    <button (click)="italianClick()" class="btn btn-light mx-3">Italian</button>
+  </ng-template>
+  <button *ngIf='chinese; else nc' (click)="chineseClick()" class="btn btn-dark mx-3">Chinese</button>
+  <ng-template #nc>
+    <button (click)="chineseClick()" class="btn btn-light mx-3">Chinese</button>
+  </ng-template>
+  <button *ngIf='north; else no' (click)="northClick()" class="btn btn-dark mx-3">North Indian</button>
+  <ng-template #no>
+    <button (click)="northClick()" class="btn btn-light mx-3">North Indian</button>
+  </ng-template>
+</div>
+
 <div class="row mx-xl-5" >
-    <div class="col-xl-3 mx-xl-5 col-lg-6 col-md-6 my-2" *ngFor="let data of items">
+    <div class="col-xl-3 mx-xl-5 col-lg-6 col-md-6 my-2" *ngFor="let data of filtersM">
       <mdb-card>
         <div class="view overlay waves-light" mdbWavesEffect>
           <mdb-card-img class="img-fluid" style="height:300px" src={{data.image}} alt="Card image cap"></mdb-card-img>

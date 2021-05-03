@@ -22,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { OrdersComponent } from './adminhome/orders/orders.component';
 import { AboutComponent } from './about/about.component';
 
+import { MyordersComponent } from './myorders/myorders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,9 @@ import { AboutComponent } from './about/about.component';
     ItemtableComponent,
     CartComponent,
     OrdersComponent,
-    AboutComponent
+    AboutComponent,
+    CartComponent,
+    MyordersComponent
   ],
   imports: [
     BrowserModule,
