@@ -1,39 +1,99 @@
-<p>items works!</p>
+<p>Site is still under construction !</p>
 
-<hr/>
-<!--
-<div class="container card">
-    <div class="row">
-        <div class="col-md-3   bg-success">
-            <img class="" src="https://i.imgur.com/hczKIze.jpg" class="img-fluid"> 
-        </div>
-
-        <div class="col-md-9 py-5 bg-primary">
-            Description and further details 
-        </div>
-    </div>
+<div class="text-center container mx-auto mt-3" style="width:300px;">
+    <h2>ITEMS CRUD</h2>
 </div>
--->
 
-<div *ngIf="items">
-    <div *ngFor="let i of items" class="container card">
-        <div class="row">
-            <div class="image col-md-3 my-3 bg-warning px-2 py-2">               
-                <img src="https://foodorderingdocs.blob.core.windows.net/images/{{i.itemid}}.jpg" class="img-fluid"> 
-                <p class="mx-auto">{{i.itemid}}</p>
-
-            </div>
-        
-            <div class="align-items-center col-md-9 my-3 bg-primary">
-                <h4 class="mt-4">{{i.itemname}}</h4>             
-            </div>
+<div class="container  mx-auto">
+    <div class="d-flex flex-row justify-content-center ">
+        <div class="p-3 col-md-2 badge-success form-check form-check-inline">
+            <input class="form-check-input " type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio1" value="view"/>
+            <label class="form-check-label" for="inlineRadio1">View</label>
         </div>
+
+        <div class="p-3 col-md-2  badge-primary form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio2" value="edit"/>
+            <label class="form-check-label" for="inlineRadio2">Edit</label>
+        </div>
+
+        <div class="p-3  col-md-2 badge-success  form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio3" value="update"/>
+            <label class="form-check-label" for="inlineRadio3">Update</label>
+        </div>
+
+        <div class="p-3 col-md-2  badge-primary form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio4" value="delete"/>
+            <label class="form-check-label" for="inlineRadio4">Delete</label>
+        </div>       
+    </div>
+    <button (click)="getit()" >Which Button</button>
+   
+    <div class="row justify-content-center">
+
+      <div class="align-items-center col-md-9 my-3 bg-primary">  
+
+        <form [formGroup]="itemForm" (ngSubmit)="onSubmit(itemForm.value)">
+            <div class="form-row">
+                
+                <div class="col-md-6">
+                    <div class="inputs"> <label>Item Id</label> <input formControlName="itemid" class="form-control" type="number"  required > </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="inputs"> <label>Item Name</label> <input formControlName="itemname" class="form-control" type="text"  required > </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="inputs"> <label>Category</label> <input class="form-control" formControlName="category" type="text"  required> </div>
+                </div>     
+
+                <div class="col-md-6">
+                    <div class="inputs"> <label>Quantity</label> <input formControlName="quantity" class="form-control" type="number"  required > </div>
+                </div>                                
+
+
+                <div class="col-md-6 d-flex pt-4 justify-content-center">
+                    
+                    <div class=" col-md-4  form-check form-check-inline">
+                        <input class="form-check-input" type="radio"  formControlName="veg" [(ngModel)]="rveg" id="inlineRadio10" value="1"/>
+                        <label class="form-check-label" for="inlineRadio10">Veg</label>
+                    </div>
+            
+                    <div class=" col-md-4   form-check form-check-inline">
+                        <input class="form-check-input" type="radio"   formControlName="veg" [(ngModel)]="rveg" id="inlineRadio11" value="0"/>
+                        <label class="form-check-label" for="inlineRadio11">Non-Veg</label>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="inputs"> <label>Price</label> <input formControlNamename="price" class="form-control" type="number"  required> </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="inputs"> <label>Description</label> <textarea class="form-control" formControlNamename="description" type="text" ></textarea> </div>
+                </div>  
+            
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+
+            <div class="mt-3 gap-2 d-flex justify-content-end"> 
+                <input type="button"  class="px-3 mb-4 btn " value="Cancel"/> 
+              <input type="submit" class="px-3 mb-4 btn" value="Update"/> 
+            </div>  
+        </form >    
+      </div>
+
     </div>
     
-<div>   
-    
-    
+
+</div>
+
+  
 
 
-
-<hr/>
