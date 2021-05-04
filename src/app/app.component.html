@@ -8,7 +8,9 @@
         <li class="nav-item">
           <a class="nav-link waves-light" routerLink="/about" mdbWavesEffect><mdb-icon fas icon="at"></mdb-icon> About</a>
         </li>
-
+        <li *ngIf="user.email==='admin@gmail.com'" class="nav-item dropdown" dropdown>
+            <a class="nav-link waves-light" routerLink="/adminhome" mdbWavesEffect><mdb-icon fas icon="shopping-cart"></mdb-icon>Admin</a>
+        </li>
         <li *ngIf="user===''; else lgout" class="nav-item dropdown" dropdown>
           <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
             <mdb-icon fas icon="info-circle"></mdb-icon>Profile<span class="caret"></span></a>

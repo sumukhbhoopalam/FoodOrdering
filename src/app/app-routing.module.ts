@@ -11,6 +11,7 @@ import { OrdersComponent } from './adminhome/orders/orders.component';
 import { AboutComponent } from './about/about.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import { AdminauthGuard } from './adminauth.guard';
+import { LoginauthGuard } from './loginauth.guard';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -25,7 +26,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'about',component:AboutComponent},
   {path:'myaccount',component:MyaccountComponent},
-  {path:'cart',component:CartComponent},
+  {path:'cart',component:CartComponent,canActivate:[LoginauthGuard]},
   {path:'myorders',component:MyordersComponent}
 ];
 
