@@ -1,16 +1,19 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black" [containerInside]="false">
-    <mdb-navbar-brand><a class="navbar-brand">Food Ordering Application</a></mdb-navbar-brand>
+    <mdb-navbar-brand><a class="navbar-brand">Hakuna Matata</a></mdb-navbar-brand>
     <links>
       <ul class="navbar-nav ml-auto">
+        <li *ngIf="user.email==='admin@gmail.com'; else cust" class="nav-item dropdown" dropdown>
+          <a class="nav-link waves-light" routerLink="/adminhome" mdbWavesEffect><mdb-icon fas icon="shopping-cart"></mdb-icon>Admin</a>
+          <a class="nav-link waves-light" (click)="onLogout()" mdbWavesEffect><mdb-icon fas icon="sign-out-alt"></mdb-icon>Logout</a>
+        </li>
+        <ng-template #cust>
         <li class="nav-item">
           <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link waves-light" routerLink="/about" mdbWavesEffect><mdb-icon fas icon="at"></mdb-icon> About</a>
         </li>
-        <li *ngIf="user.email==='admin@gmail.com'" class="nav-item dropdown" dropdown>
-            <a class="nav-link waves-light" routerLink="/adminhome" mdbWavesEffect><mdb-icon fas icon="shopping-cart"></mdb-icon>Admin</a>
-        </li>
+        
         <li *ngIf="user===''; else lgout" class="nav-item dropdown" dropdown>
           <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
             <mdb-icon fas icon="info-circle"></mdb-icon>Profile<span class="caret"></span></a>
@@ -32,6 +35,7 @@
               </div>
           </li>
         </ng-template>
+      </ng-template>
       </ul>
     </links>
   </mdb-navbar>

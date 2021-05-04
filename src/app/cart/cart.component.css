@@ -1,3 +1,7 @@
 input{
     width: 40px;
 }
+
+a:visited{
+    color: white;
+  }

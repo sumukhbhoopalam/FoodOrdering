@@ -25,9 +25,10 @@ const routes: Routes = [
   },
   {path:'home',component:HomeComponent},
   {path:'about',component:AboutComponent},
-  {path:'myaccount',component:MyaccountComponent},
+  {path:'myaccount',component:MyaccountComponent,canActivate:[LoginauthGuard]},
   {path:'cart',component:CartComponent,canActivate:[LoginauthGuard]},
-  {path:'myorders',component:MyordersComponent}
+  {path:'myorders',component:MyordersComponent,canActivate:[LoginauthGuard]},
+  {path:'',redirectTo:'/home',pathMatch:'prefix'},
 ];
 
 @NgModule({

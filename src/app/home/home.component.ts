@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   italian:any = false;
   chinese:any = false;
   north:any = false;
+  beverage:any = false;
   filter:any={};
   filtersM:any=[];
   customOptions: OwlOptions = {
@@ -110,6 +111,13 @@ export class HomeComponent implements OnInit {
     else
       this.onChangeFilter('north','');
   }
+  beverageClick(){
+    this.beverage = !this.beverage;
+    if(this.beverage)
+      this.onChangeFilter('beverage','Beverages');
+    else
+      this.onChangeFilter('beverage','');
+  }
 
   onChangeFilter = (filterVal:any, changedFilters:any) => {
     console.log(filterVal, changedFilters);
@@ -135,6 +143,9 @@ export class HomeComponent implements OnInit {
           return filters[filter].includes(item.category)
         }
         else if(filter === 'north'){
+          return filters[filter].includes(item.category)
+        }
+        else if(filter === 'beverage'){
           return filters[filter].includes(item.category)
         }
       })

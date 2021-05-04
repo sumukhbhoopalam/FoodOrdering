@@ -1,3 +1,8 @@
+.mainheadd{
+    font-family: 'Cinzel Decorative', cursive;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF, 3px 3px black;
+    font-size: 80px;
+}
 .view{
     height: 170px;
 }
@@ -22,6 +27,18 @@ a {
 a:hover {
     color: black;
     text-decoration: none !important; 
+}
+
+.mainheadd{
+    
+    font-family: 'Cinzel Decorative', cursive;
+    /*text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF, 3px 3px white;*/
+    text-shadow:  3px 3px green;
+}
+
+.sss{
+    font-family: 'Poppins', sans-serif; 
+    
 }
 
 .content {
@@ -95,7 +112,7 @@ h2 {
     position: relative; 
 }
 .site-blocks-cover .intro .heading { 
-    margin-left: -150px; 
+    margin-left: -200px; 
 }
 .site-blocks-cover .intro .text {
     padding-left: 50px; 
@@ -111,11 +128,5 @@ h2 {
     border-radius: 30px;
     padding: 15px 30px;
     border-color: #fff;
-    color: #fff; }
-    .btn-pill:hover {
-    background: #fff;
-    border-color: #fff;
-    color: #000;
+    color: black;
  }
- .owl-nav {
-}

@@ -1,39 +1,54 @@
+<div class="text-center" *ngIf="orders.length===0; else ord" >
+  <div style="width: 200px;" class="card mx-auto mt-5">
+    <div class="card-body">
+      <h5 class="card-title">Cart</h5>
+      <p class="card-text">
+        You do not have any orders cart, Hurry up and order when the deals are fresh
+      </p>
+      <button class="btn btn-dark"><a routerLink="/home"> Home</a></button>
+    </div>
+  </div>
+</div>
+<ng-template class="text-center" #ord>
 <table mat-table
        [dataSource]="orders" multiTemplateDataRows
-       class="mat-elevation-z8 mx-2">
+       class="mat-elevation-z8 mx-2 text-center">
   
   <ng-container matColumnDef="orderid">
     <th *matHeaderCellDef> Order ID </th>
-    <td *matCellDef="let element"> {{element.orderid}} </td>
+    <th *matCellDef="let element"> {{element.orderid.substring(25,32)}} </th>
   </ng-container>
 
   <ng-container matColumnDef="orddatetime">
-    <th *matHeaderCellDef> Order DateTime </th>
-    <td *matCellDef="let element"> {{element.orddatetime}} </td>
+    <th *matHeaderCellDef> Order Date </th>
+    <th *matCellDef="let element"> {{element.orddatetime | date}} </th>
   </ng-container>
 
   <ng-container matColumnDef="totprice">
     <th *matHeaderCellDef> Total Price </th>
-    <td *matCellDef="let element"> {{element.totprice}} </td>
+    <th *matCellDef="let element"> {{element.totprice}} </th>
   </ng-container>
 
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
-        <div>Order Details</div> 
-        <div *ngFor="let e of element.items" class="row">
-            <div class="col-xl-3 my-2">
+        <div style="background-color: rgb(121, 182, 184);" class="card-body mb-3">
+          <h5 class="card-title">Order Details</h5>
+          <div *ngFor="let e of element.items" class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 my-2">
                 <img style="height: 150px;" class="img-fluid w-100" src={{e.it.image}} />
             </div>
-            <div class="col-xl-3 mt-xl-5">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 mt-xl-5">
                 <p>Item : {{e.it.itemname}}</p>
             </div>
-            <div class="col-xl-2 mt-xl-5">
+            <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 mt-xl-5">
                 <p>Quantity : {{e.quantity}}</p>
             </div>
-            <div class="col-xl-2 mt-xl-5">
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 mt-xl-5">
                 <p>Price : {{e.price}}</p>
             </div>
         </div>
+        </div> 
+        
     </td>
   </ng-container>
 
@@ -50,3 +65,4 @@
 </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
+</ng-template>

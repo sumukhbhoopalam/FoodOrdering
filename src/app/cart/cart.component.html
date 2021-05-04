@@ -1,4 +1,4 @@
-<section *ngIf="cartItems.length!=0" class="ml-xl-3">
+<section *ngIf="cartItems.length!=0; else crt" class="ml-xl-3">
     <div class="row">
       <div class="col-xl-7">
         <div class="mb-3">
@@ -80,3 +80,14 @@
       </div>
     </div>
   </section>
+  <ng-template #crt>
+    <div style="width: 200px;" class="card mx-auto mt-5">
+      <div class="card-body">
+        <h5 class="card-title">Cart</h5>
+        <p class="card-text">
+          You do not have any items in the cart, Hurry up and order when the deals are fresh
+        </p>
+        <button class="btn btn-dark"><a routerLink="/home"> Home</a></button>
+      </div>
+    </div>
+  </ng-template>
