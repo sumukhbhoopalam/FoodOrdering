@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         alert("Success")
         this.ser.changeMessage(this.data);
         if(this.data.userid =="admin")
-        { this.router.navigate(['/adminhome']);}
+        {console.log("redirecting to adminhome"); this.router.navigate(['/adminhome']);}
         else
         { this.router.navigate(['/home']);}
       }
