@@ -267,7 +267,7 @@ export class ItemsComponent implements OnInit {
             this.IROitemname=true;
             this.IROcategory=true;
             this.IROveg=true;
-            this.itemForm.get('veg')?.disable();
+            //this.itemForm.get('veg')?.disable();
             this.IROquantity=true;
             this.IROprice=true;
             this.IROdescription=true;
