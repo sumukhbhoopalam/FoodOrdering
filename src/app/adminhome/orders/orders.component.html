@@ -1,0 +1,56 @@
+<p>orders works!</p>
+
+
+    <div class="container">
+        <div class="row mt-4 justify-content-center">
+            <button class="col-sm-6 btn1"  (click)="refreshit()" >Refresh</button>
+        </div>
+    </div>
+
+ 
+
+   <div class="dd container data mat-elevation-z8 justify-content-center">
+
+    <mat-paginator #paginator class="pag" [pageSize]="5"  [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+
+    <mat-table  [dataSource]="dataSource" matSort >
+  
+
+      <ng-container matColumnDef="orderid">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Order Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.orderid}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="userid">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> User ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.userid}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="orderdatetime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Order Date Time </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.orderdatetime}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="orderstatus">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Order Status </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.orderstatus}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="totprice">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Total Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.totprice}} </mat-cell>
+      </ng-container>
+
+         
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </mat-table>
+
+    <ng-template #load>
+      <img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif">
+   </ng-template>
+  
+
+</div> 

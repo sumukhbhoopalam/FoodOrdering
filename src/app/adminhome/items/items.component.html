@@ -6,22 +6,25 @@
 
 <div class="container  mx-auto">
     <div class="d-flex flex-row justify-content-center ">
-        <div class="p-3 col-md-2 badge-success form-check form-check-inline">
+        <div class="p-3 col-sm-2 badge-success form-check form-check-inline">
             <input class="form-check-input " type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio1" value="view"/>
             <label class="form-check-label" for="inlineRadio1">View</label>
         </div>
 
-        <div class="p-3 col-md-2  badge-primary form-check form-check-inline">
+
+        
+
+        <div class="p-3 col-sm-2  badge-primary form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio2" value="edit"/>
             <label class="form-check-label" for="inlineRadio2">Edit</label>
         </div>
 
-        <div class="p-3  col-md-2 badge-success  form-check form-check-inline">
+        <div class="p-3  col-sm-2 badge-success  form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio3" value="create"/>
             <label class="form-check-label" for="inlineRadio3">Create</label>
         </div>
 
-        <div class="p-3 col-md-2  badge-primary form-check form-check-inline">
+        <div class="p-3 col-sm-2  badge-primary form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" on-change="handleChange()" [(ngModel)]="rbutton" id="inlineRadio4" value="delete"/>
             <label class="form-check-label" for="inlineRadio4">Delete</label>
         </div>       
@@ -29,56 +32,63 @@
    
     <div class="container ">
         <div class="row mt-4 justify-content-center">
-            <button class="col-md-4 btn1"  (click)="getit()" >Get Data</button>
+            <button class="col-sm-4 btn1"  (click)="getit()" >Get Data</button>
         </div>
     </div>
    
     <div class="row my-3 justify-content-center">
 
-      <div class="align-items-center col-md-9 my-3 bg-primary">  
+      <div class="align-items-center col-sm-9 my-3 bg-primary">  
 
         <form [formGroup]="itemForm" (ngSubmit)="onSubmit(itemForm.value)">
+
+            <div class="form-row justify-content-center">
+                <div class="col-sm-4 pt-4 justify-content-center">                     
+                    <img  [src]="imageurl"  alt="item image" formControlName="image" class=" img-fluid"> <span><i class='bx bxs-camera-plus'></i></span> 
+                </div>                                
+            </div>
+
             <div class="form-row">
                 
-                <div class="col-md-5">
+                <div class="col-sm-5">
                     <div class="inputs"> <label>Item Id</label> <input [readonly]="IROitemid" formControlName="itemid" class="form-control" type="number"  [required]="!IROitemid"  /> </div>
                     
                 </div>
                 
-                <div class="col-md-1">
+                <div class="col-sm-1">
                     <span style="font-size: 25px; color:red" *ngIf="itemForm.controls.itemid.errors?.required">*</span>
                 </div>
               
                 
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div class="inputs"> <label>Item Name</label> <input [readonly]="IROitemname" formControlName="itemname" name="itemname" class="form-control" type="text"  [required]="!IROitemname" /> </div>
                 </div>
             </div>  
                 
             <div class="form-row">
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div   style="font-size: 2px;" *ngIf="itemForm.controls.itemid.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Id</div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div style="font-size: 2px;" *ngIf="itemForm.controls.itemname.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Itemname</div>
                 </div>
             </div>
 
             <div class="form-row">  
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div class="inputs"> <label>Category</label> <input class="form-control" [readonly]="IROcategory" formControlName="category" type="text"  [required]="!IROcategory" /> </div>
                 </div>     
 
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div class="inputs"> <label>Quantity</label> <input [readonly]="IROquantity" formControlName="quantity" class="form-control" type="number"  [required]="!IROquantity" /> </div>
                 </div>                                
             </div>
 
             <div class="form-row">
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div   style="font-size: 2px;" *ngIf="itemForm.controls.category.errors?.pattern" class="alert alert-danger mt-3">Enter Valid Category</div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div style="font-size: 2px;" *ngIf="itemForm.controls.quantity.errors?.pattern" class="alert alert-danger mt-3">Quantity should be 0-9999</div>
                 </div>
             </div>
@@ -86,14 +96,14 @@
             <div class="form-row">
 
 
-                <div class="col-md-6 d-flex pt-4 justify-content-center">
+                <div class="col-sm-6 d-flex pt-4 justify-content-center">
                     
-                    <div class="custom-control col-md-3  form-check form-check-inline">
+                    <div class="custom-control col-sm-3  form-check form-check-inline">
                         <input class="custom-control-input  form-check-input bg-danger"  type="radio"  [readonly]="IROveg" formControlName="veg" [(ngModel)]="rveg" id="inlineRadio10" [value]=true/>
                         <label class="custom-control-label gg  form-check-label" for="inlineRadio10">Veg</label>
                     </div>
         
-                    <div class="custom-control col-md-6   form-check form-check-inline">
+                    <div class="custom-control col-sm-6   form-check form-check-inline">
                         <input class="custom-control-input  form-check-input" type="radio"   [readonly]="IROveg" formControlName="veg" [(ngModel)]="rveg" id="inlineRadio11" [value]=false/>
                         <label class="custom-control-label rr form-check-label" for="inlineRadio11">Non-Veg</label>
                     </div>
@@ -102,23 +112,28 @@
             
 
 
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div class="inputs"> <label>Price</label> <input [readonly]="IROprice"  formControlName="price" class="form-control" type="number"  [required]="!IROprice"  /> </div>
                 </div>
 
             </div>
 
             <div class="form-row">
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div style="font-size: 2px;" *ngIf="itemForm.controls.price.errors?.pattern" class="alert alert-danger mt-3">Price should be 1-999999</div>
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="col-md-12">
+                <div class="col-sm-12">
+                    <div class="inputs"> <label>Image URL</label> <input  (change)="previewimage()" class="form-control" [readonly]="IROimage" formControlName="image" type="text"  [required]="!IROimage" /> </div>                </div>  
+            </div>
+
+            <div class="form-row">
+                <div class="col-sm-12">
                     <div class="inputs"> <label>Description</label> <textarea [readonly]="IROdescription" class="form-control" formControlName="description" type="text"></textarea> </div>
                 </div>  
             </div>

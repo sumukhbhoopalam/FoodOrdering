@@ -7,6 +7,11 @@ import { Observable } from 'rxjs';
 export class OrderService {
 
   constructor(private http:HttpClient) { }
+
+  getOrders():Observable<object>{
+    return this.http.get('http://localhost:62289/api/orders');
+  }
+
   getOrder(s:any):Observable<object>{
     return this.http.get('http://localhost:62289/api/orders/'+s);
   }

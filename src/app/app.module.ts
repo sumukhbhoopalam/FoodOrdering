@@ -11,7 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { ItemsComponent } from './adminhome/items/items.component';
-import { UsersComponent } from './adminhome/users/users.component';
 import { ItemtableComponent } from './adminhome/items/itemtable/itemtable.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +19,9 @@ import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { OrdersComponent } from './adminhome/orders/orders.component';
+import { AboutComponent } from './about/about.component';
+
 import { MyordersComponent } from './myorders/myorders.component';
 @NgModule({
   declarations: [
@@ -30,8 +32,10 @@ import { MyordersComponent } from './myorders/myorders.component';
     HomeComponent,
     MyaccountComponent,
     ItemsComponent,
-    UsersComponent,
     ItemtableComponent,
+    CartComponent,
+    OrdersComponent,
+    AboutComponent,
     CartComponent,
     MyordersComponent
   ],

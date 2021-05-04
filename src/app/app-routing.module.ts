@@ -6,8 +6,9 @@ import { SignupComponent } from './signup/signup.component';
 import {HomeComponent} from './home/home.component'
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { ItemsComponent } from './adminhome/items/items.component';
-import { UsersComponent } from './adminhome/users/users.component';
 import { CartComponent } from './cart/cart.component';
+import { OrdersComponent } from './adminhome/orders/orders.component';
+import { AboutComponent } from './about/about.component';
 import { MyordersComponent } from './myorders/myorders.component';
 
 const routes: Routes = [
@@ -17,10 +18,11 @@ const routes: Routes = [
     children:[
       {path:'',redirectTo:'items',pathMatch:'full'},
       {path:'items',component:ItemsComponent},
-      {path:'users',component:UsersComponent}
+      {path:'orders',component:OrdersComponent}
     ]  
   },
   {path:'home',component:HomeComponent},
+  {path:'about',component:AboutComponent},
   {path:'myaccount',component:MyaccountComponent},
   {path:'cart',component:CartComponent},
   {path:'myorders',component:MyordersComponent}
