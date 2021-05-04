@@ -35,7 +35,7 @@ export class CartComponent implements OnInit {
       }`
     );
     if(e.quantity>1){
-      this.cart.putItem(e.cartid,finalData).subscribe(e=>{alert("Successfuly Updated"),this.ngOnInit()});
+      this.cart.putItem(e.cartid,finalData).subscribe(e=>{this.ngOnInit()},e=>alert("Could not Update"));
     }
     else{
       alert("1 is the minimum");
@@ -54,7 +54,7 @@ export class CartComponent implements OnInit {
         "price": "${this.itemData[index].price * (e.quantity+1)}"
       }`
     );
-    this.cart.putItem(e.cartid,finalData).subscribe(e=>{alert("Successfuly Updated"),this.ngOnInit()});
+    this.cart.putItem(e.cartid,finalData).subscribe(e=>{this.ngOnInit()},e=>alert("Could not Update"));
   }
   order(){
     var finalData=[];
