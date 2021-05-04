@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {Md5} from 'ts-md5'
+import { LoginpassService } from '../loginpass.service';
 import { LoginService } from '../service/login.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { LoginService } from '../service/login.service';
 })
 export class LoginComponent implements OnInit {
   data:any = undefined;
-  constructor(private ser:LoginService,private router:Router) {
+  constructor(private ser:LoginService,private router:Router,private logs: LoginpassService) {
    }
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
       {
         alert("Success")
         this.ser.changeMessage(this.data);
+        this.logs.userid.next(this.data.userid);
         if(this.data.userid =="admin")
         {console.log("redirecting to adminhome"); this.router.navigate(['/adminhome']);}
         else
