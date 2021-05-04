@@ -10,11 +10,12 @@ import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './adminhome/orders/orders.component';
 import { AboutComponent } from './about/about.component';
 import { MyordersComponent } from './myorders/myorders.component';
+import { AdminauthGuard } from './adminauth.guard';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'adminhome',component:AdminhomeComponent,
+  {path:'adminhome',component:AdminhomeComponent,canActivate:[AdminauthGuard],
     children:[
       {path:'',redirectTo:'items',pathMatch:'full'},
       {path:'items',component:ItemsComponent},
